@@ -9,7 +9,7 @@ const ContactList = ({contacts, onDeleteContact}) => {
             )}
         </ul>
     )
-}
+};
 
 export default ContactList;
 

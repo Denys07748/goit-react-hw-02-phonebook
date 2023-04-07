@@ -22,14 +22,14 @@ class App extends Component {
       alert(`${contactData.name} is already in contacts`);
       return;
     }
-    
-    const contact = {
+
+    const newContact = {
       id: nanoid(10),
       ...contactData,
     }
-    console.log(contact);
+  
     this.setState(({ contacts }) => ({
-      contacts: [contact, ...contacts],
+      contacts: [newContact, ...contacts],
     }))
   };
 
@@ -63,7 +63,7 @@ class App extends Component {
         />
 
         <TitleSec>Contacts</TitleSec>
-        <Filter value={this.filter} onChange={this.changeFilter}/>
+        <Filter value={this.state.filter} onChange={this.changeFilter}/>
         <ContactList contacts={visibleContacts} onDeleteContact={this.deleteContact} />
       </Container>
     );
