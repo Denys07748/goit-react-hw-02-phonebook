@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
 
-const ContactListItem = (({name, number}) => {
+const ContactListItem = (({id, name, number, onDeleteContact}) => {
     return (
         <li>
-           <p>{name}: {number}</p> 
+           <p>{name}: {number}</p>
+           <button type='button' onClick={() => onDeleteContact(id)}>
+            Delete
+           </button>
         </li>
     )
 });
