@@ -5,7 +5,7 @@ import * as yup from "yup";
 
 const { validName: { checkName, messageName }, validNum: { checkNum, messageNum } } = {
     validName: {
-        checkName: /^(?=[A-ZА-ЯЁ])([A-ZА-ЯЁ][a-zа-яё]*(([' -][A-ZА-ЯЁ][a-zа-яё]*)*))*$/,
+        checkName: /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
         messageName: 'Name may contain only letters',
     },
     validNum: {

@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   addContact = contactData => {
-    const isIncludes = this.state.contacts.some(({name}) => name === contactData.name);
+    const isIncludes = this.state.contacts.some(({name}) => name.toLowerCase() === contactData.name.toLowerCase()); 
     if(isIncludes) {
       alert(`${contactData.name} is already in contacts`);
       return;
