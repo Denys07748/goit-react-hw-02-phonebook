@@ -1,3 +1,5 @@
+// Варіант з классом
+
 // import React, { Component } from 'react';
 
 // class ContactForm extends Component {
@@ -55,18 +57,27 @@
 //         )
 //     }
 // }
+
+// export default ContactForm;
+
+// --------------------------------------------------------
+
+
+// Варіант з використанням бібліотек Formik та Yup
+
 import PropTypes from 'prop-types';
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { FormEl } from "./ContactForm.styled";
+import { Formik, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 
 const { validName: { checkName, messageName }, validNum: { checkNum, messageNum } } = {
     validName: {
         checkName: /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
-        messageName: 'Name may contain only letters, apostrophe, dash and spaces',
+        messageName: 'Name may contain only letters',
     },
     validNum: {
         checkNum: /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
-        messageNum: 'Phone number must be digits and can contain spaces, dashes, parentheses and can start with +',
+        messageNum: 'Phone number must be digits',
     },
 }
 
@@ -92,7 +103,7 @@ const ContactForm = ({onSubmit}) => {
             <Formik initialValues={initialValues} 
                     validationSchema={schema} 
                     onSubmit={handleSubmit}>
-                <Form >
+                <FormEl>
                     <label htmlFor='name'>
                         Name<Field
                             type="text"
@@ -108,7 +119,7 @@ const ContactForm = ({onSubmit}) => {
                         <ErrorMessage name="number" component='div'/>
                     </label>
                     <button type='submit'>Add contact</button>
-                </Form>
+                </FormEl>
             </Formik>
         );
 }
